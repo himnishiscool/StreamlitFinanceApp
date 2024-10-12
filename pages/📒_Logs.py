@@ -5,5 +5,5 @@ st.set_page_config(
     page_icon="💵"
 )
 
-st.title("Home")
 st.sidebar.success("Select a page!")
+st.title("Logs")
