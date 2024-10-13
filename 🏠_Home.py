@@ -28,7 +28,7 @@ time_transaction = st.date_input(label="When did this happen?")
 
 # Function to write totals to files
 def write_value(file_name, value):
-    with open(file_name, "w") as file:
+    with open(file_name, "a") as file:
         file.write(str(value))
 
 # Submit Button Logic
