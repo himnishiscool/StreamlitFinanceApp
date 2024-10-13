@@ -1,3 +1,4 @@
+import json
 import streamlit as st
 
 st.set_page_config(page_title="Finance App", page_icon="💵")
@@ -5,7 +6,7 @@ st.set_page_config(page_title="Finance App", page_icon="💵")
 st.title("Home")
 st.sidebar.success("Select a page!")
 
-# Initialize session state variables if not already present
+# Initialize session state variables
 if "Amount" not in st.session_state:
     st.session_state["Amount"] = 0
 if "Type" not in st.session_state:
@@ -15,7 +16,7 @@ if "Description" not in st.session_state:
 if "Time" not in st.session_state:
     st.session_state["Time"] = ""
 if "Log" not in st.session_state:
-    st.session_state["Log"] = {}
+    st.session_state["Log"] = []
 if "TSpent" not in st.session_state:
     st.session_state["TSpent"] = 0
 if "TEarned" not in st.session_state:
@@ -28,8 +29,25 @@ time_transaction = st.date_input(label="When did this happen?")
 
 # Function to write totals to files
 def write_value(file_name, value):
-    with open(file_name, "a") as file:
+    with open(file_name, "w") as file:
         file.write(str(value))
+
+# Function to save logs to JSON
+def save_log(log):
+    try:
+        # Load existing logs
+        with open("logs.json", "r") as file:
+            logs = json.load(file)
+    except (FileNotFoundError, json.JSONDecodeError):
+        # If file does not exist or is empty, start with an empty list
+        logs = []
+
+    # Append the new log
+    logs.append(log)
+
+    # Write updated logs back to the file
+    with open("logs.json", "w") as file:
+        json.dump(logs, file, indent=4)
 
 # Submit Button Logic
 if st.button("Submit"):
@@ -38,25 +56,26 @@ if st.button("Submit"):
     else:
         st.session_state.TEarned += amount
 
-    log_entry = {
+    log = {
         "Amount": amount,
         "Type": type_,
         "Description": description,
         "Time": str(time_transaction),
     }
 
-    st.session_state.Log[len(st.session_state.Log) + 1] = log_entry  # Add new entry to log
+    # Save log
+    save_log(log)
 
-    # Write updated totals to files
+    # Update totals in files
     write_value("totalSpent.txt", st.session_state.TSpent)
     write_value("totalEarned.txt", st.session_state.TEarned)
 
-    # Update session state
-    st.session_state.update({
-        "Amount": 0,  # Reset inputs
-        "Type": "",
-        "Description": "",
-        "Time": ""
-    })
-
-st.write("Current Log:", st.session_state.Log)
+    # Reset session state values
+    st.session_state.update(
+        {
+            "Amount": 0.00,
+            "Type": "",
+            "Description": "",
+            "Time": ""
+        }
+    )
