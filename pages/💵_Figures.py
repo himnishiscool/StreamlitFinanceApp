@@ -1,25 +1,16 @@
 import streamlit as st
 
-st.set_page_config(
-    page_title="Finance App",
-    page_icon="💵"
-)
+st.set_page_config(page_title="Finance App", page_icon="💵")
 
 st.sidebar.success("Select a page!")
 st.title("Figures")
 
-with open("totalSpent.txt", "r") as file:
-    amount_spent = file.read()
-    amount_spent = int(amount_spent)
+# Read total spent and earned from session state
+amount_spent = st.session_state.get("TSpent", 0)
+amount_earned = st.session_state.get("TEarned", 0)
 
-with open("totalEarned.txt", "r") as file:
-    amount_earned = file.read()
-    amount_earned = int(amount_earned)
-
-if st.session_state["TEarned"]:
-    st.rerun()
-
-total_earned = st.markdown(
+# Display the figures with decoration
+st.markdown(
     f"""
     <div style="
         border: 5px solid #1DB954;
@@ -34,11 +25,10 @@ total_earned = st.markdown(
             ${amount_earned:,.2f}
         </p>
     </div>
-    """,
-    unsafe_allow_html=True
+    """, unsafe_allow_html=True
 )
 
-total_spent = st.markdown(
+st.markdown(
     f"""
     <div style="
         border: 5px solid #E74C3C;
@@ -53,6 +43,5 @@ total_spent = st.markdown(
             ${amount_spent:,.2f}
         </p>
     </div>
-    """,
-    unsafe_allow_html=True
+    """, unsafe_allow_html=True
 )
