@@ -10,5 +10,29 @@
         "Type": "Cost",
         "Description": "Bought Emoji's",
         "Time": "2024-10-13"
+    },
+    {
+        "Amount": 100,
+        "Type": "Cost",
+        "Description": "Test",
+        "Time": "2024-10-14"
+    },
+    {
+        "Amount": 50.0,
+        "Type": "Earned",
+        "Description": "Test",
+        "Time": "2024-10-14"
+    },
+    {
+        "Amount": 123.0,
+        "Type": "Earned",
+        "Description": "TEST",
+        "Time": "2024-10-14"
+    },
+    {
+        "Amount": 340.0,
+        "Type": "Cost",
+        "Description": "Test",
+        "Time": "2024-10-14"
     }
 ]

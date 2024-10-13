@@ -1,28 +1,36 @@
 import streamlit as st
 import json
+from datetime import datetime
 
 st.set_page_config(page_title="Finance App", page_icon="💵")
 
 st.sidebar.success("Select a page!")
 st.title("Logs")
 
-# Initialize session state for logs
+# Initialize session state for logs if it doesn't exist
 if "Log" not in st.session_state:
-    st.session_state["Log"] = []  # Default to an empty list
+    st.session_state["Log"] = []  # Start with an empty list
 
-try:
-    # Try to load logs from the JSON file if it's not already in session state
-    if not st.session_state["Log"]:
+# Function to load logs from the JSON file
+def load_logs():
+    try:
         with open("logs.json", "r") as file:
             logs = json.load(file)
-            st.session_state["Log"] = logs
-except (FileNotFoundError, json.JSONDecodeError) as e:
-    st.session_state["Log"] = []  # Reset to empty if error occurs
-    st.error(f"Error loading logs: {str(e)}")  # Display the error message
+            st.session_state["Log"] = logs  # Update session state
+    except (FileNotFoundError, json.JSONDecodeError):
+        st.session_state["Log"] = []  # Default to an empty list if error occurs
 
-logs = st.session_state["Log"]
+# Load logs if not already loaded into session state
+if not st.session_state["Log"]:
+    load_logs()
 
-# Check if there are any logs to display
+# Sort logs by time (newest to oldest)
+logs = sorted(
+    st.session_state["Log"],
+    key=lambda x: datetime.fromisoformat(x["Time"]),
+    reverse=True
+)
+
 if not logs:
     st.write("No logs available.")
 else:
