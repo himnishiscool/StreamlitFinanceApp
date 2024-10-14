@@ -33,9 +33,17 @@ def write_value(file_name, value):
         file.write(str(value))
 
 # Input fields for new transactions
-amount = st.number_input(label="Amount", value=st.session_state["Amount"])
-type_ = st.selectbox("Cost or Earned?", ["Cost", "Earned"], index=0)
-description = st.text_input(label="Description", value=st.session_state["Description"])
+amount = st.number_input(label="Amount",
+                         value=st.session_state["Amount"],
+                         placeholder="Enter an amount")
+
+type_ = st.selectbox("Cost or Earned?",
+                     ["Cost", "Earned"],
+                     index=0)
+
+description = st.text_input(label="Description",
+                            value=st.session_state["Description"],
+                            placeholder="A brief description...")
 time_transaction = st.date_input(label="When did this happen?")
 
 # Submit Button Logic
