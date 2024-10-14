@@ -1,12 +1,14 @@
-{
-    "Amount": 16720.0,
-    "Type": "Earned",
-    "Description": "Salary",
-    "Time": "2024-09-30"
-}
-{
-    "Amount": 1.0,
-    "Type": "Cost",
-    "Description": "Bought Emoji's",
-    "Time": "2024-10-13"
-}
+[
+    {
+        "Amount": 16720.0,
+        "Type": "Earned",
+        "Description": "Salary",
+        "Time": "2024-09-30"
+    },
+    {
+        "Amount": 1.0,
+        "Type": "Cost",
+        "Description": "Bought Emoji's",
+        "Time": "2024-10-13"
+    }
+]
