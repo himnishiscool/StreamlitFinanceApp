@@ -43,19 +43,19 @@
     },
     {
         "Amount":25,
-        "Type":"Cost",
+        "Type":"Earned",
         "Description":"$25 Visa Card",
         "Time":"2024-07-10"
     },
     {
         "Amount":15,
-        "Type":"Cost",
+        "Type":"Earned",
         "Description":"$15 Dunkin' Card",
         "Time":"2024-07-10"
     },
     {
         "Amount":25,
-        "Type":"Cost",
+        "Type":"Earned",
         "Description":"$25 Visa Card",
         "Time":"2024-07-10"
     }
