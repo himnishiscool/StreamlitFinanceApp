@@ -1,14 +1,62 @@
 [
     {
-        "Amount": 16720.0,
-        "Type": "Earned",
-        "Description": "Salary",
-        "Time": "2024-09-30"
+        "Amount":1,
+        "Type":"Cost",
+        "Description":"Bought Emoji's",
+        "Time":"2024-10-13"
     },
     {
-        "Amount": 1.0,
-        "Type": "Cost",
-        "Description": "Bought Emoji's",
-        "Time": "2024-10-13"
+        "Amount":40,
+        "Type":"Earned",
+        "Description":"Cash",
+        "Time":"2024-10-14"
+    },
+    {
+        "Amount":50,
+        "Type":"Earned",
+        "Description":"50$ Amazon Gift Card",
+        "Time":"2024-07-10"
+    },
+    {
+        "Amount":50,
+        "Type":"Earned",
+        "Description":"50$ Amazon Gift Card",
+        "Time":"2024-07-10"
+    },
+    {
+        "Amount":25,
+        "Type":"Earned",
+        "Description":"25$ Amazon Gift Card",
+        "Time":"2024-07-10"
+    },
+    {
+        "Amount":25,
+        "Type":"Earned",
+        "Description":"25$ Amazon Gift Card",
+        "Time":"2024-07-10"
+    },
+    {
+        "Amount":25,
+        "Type":"Earned",
+        "Description":"25$ Amazon Gift Card",
+        "Time":"2024-07-10"
+    },
+    {
+        "Amount":25,
+        "Type":"Cost",
+        "Description":"$25 Visa Card",
+        "Time":"2024-07-10"
+    },
+    {
+        "Amount":15,
+        "Type":"Cost",
+        "Description":"$15 Dunkin' Card",
+        "Time":"2024-07-10"
+    },
+    {
+        "Amount":25,
+        "Type":"Cost",
+        "Description":"$25 Visa Card",
+        "Time":"2024-07-10"
     }
 ]
